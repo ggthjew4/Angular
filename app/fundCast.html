@@ -1,0 +1,59 @@
+<html lang="en" ng-app="myApps">
+
+<head>
+    <meta charset="utf-8">
+    <title>Google Phone Gallery</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script language="JavaScript" type="text/javascript" src="lib/jquery/jquery-1.10.2.js"></script>
+    <script language="JavaScript" type="text/javascript" src="lib/angular/angular.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/controllers.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/app.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/filters.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/services.js"></script>
+    <script language="JavaScript" type="text/javascript" src="lib/angular/angular-resource.js"></script>
+    <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+</head>
+
+<body>
+    <div class="span10" ng-controller="FundCastListCtrl">
+        <div class="clean"></div>
+        <div>
+            <span>名稱:{{mainFundCast.name}}</span>
+            <span>標題:{{mainFundCast.title}}</span>
+            <span>作者:{{mainFundCast.speaker}}</span>
+            <span>影片日期:{{mainFundCast.videoDate}}</span>
+            <span>影片摘要:{{mainFundCast.summary}}</span>
+            <span>影片ID:{{mainFundCast.videoId}}</span>
+        </div>
+        <object id="myExperience928199562001" class="BrightcoveExperience">
+            <param name="bgcolor" value="#FFFFFF" />
+            <param name="width" value="480" />
+            <param name="height" value="270" />
+            <param name="playerID" value="2238117460001" />
+            <param name="isVid" value="true" />
+            <param name="isUI" value="true" />
+            <param name="dynamicStreaming" value="true" />
+            <param name="@videoPlayer" value="2573362597001" />
+            <param name="includeAPI" value="true" />
+            <param name="templateLoadHandler" value="BCLS.onTemplateLoad" />
+            <param name="templateReadyHandler" value="BCL.onTemplateReady" />
+        </object>
+        <script type="text/javascript">
+        brightcove.createExperiences();
+        </script>
+        <ul>
+            <p ng-click='next(currentPage-1)'>上一頁</p>
+            <p ng-click='next(currentPage+1)'>下一頁</p>
+            <li ng-repeat="fundCast in fundCastList | orderBy:orderBy" class="thumbnail">
+                <p ng-click="changeMainFundCast(fundCast.id)">{{fundCast.name}}</p>
+                <p>{{fundCast.title}}</p>
+                <p>{{fundCast.summary}}</p>
+                <p>{{fundCast.speaker}}</p>
+                <p>{{fundCast.videoDate}}</p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

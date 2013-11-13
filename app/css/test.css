@@ -1,0 +1,15 @@
+.main {
+	color: blue;
+    font-family: 標楷體;
+    font-style: italic;
+    font-weight: bold;
+    font-variant: small-caps;
+    text-indent: 24pt;
+    letter-spacing: 10pt;
+    text-decoration: blink;
+    vertical-align: text-top; 
+}
+
+div{
+	vertical-align: text-top;
+}
